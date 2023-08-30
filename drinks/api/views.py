@@ -25,7 +25,6 @@ def drink_list(request):
 api_view(['GET', 'PUT', 'DELETE'])
 def drink_detail(request, id):
 
-
     try:
         drink = Drink.objects.get(pk=id)
     except Drink.DoesNotExist:
