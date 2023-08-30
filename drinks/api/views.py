@@ -21,7 +21,8 @@ def drink_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-api_view(['GET', 'PUT', 'DELETE'])
+
+@api_view(['GET', 'PUT', 'DELETE'])
 def drink_detail(request, id):
 
     try:
@@ -31,7 +32,7 @@ def drink_detail(request, id):
 
     if request.method == 'GET':
         serializer = DrinkSerializer(drink)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data)
     
     elif request.method == 'PUT':
         serializer = DrinkSerializer(drink, request.data)
